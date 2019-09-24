@@ -1,5 +1,7 @@
 package com.begining;
-
+/**
+ * Gestures noting but scrollings, swiping, longpress etc
+ */
 import java.net.MalformedURLException;
 
 import java.util.concurrent.TimeUnit;
@@ -13,10 +15,11 @@ import static io.appium.java_client.touch.TapOptions.tapOptions;
 import static io.appium.java_client.touch.LongPressOptions.longPressOptions;
 import static io.appium.java_client.touch.offset.ElementOption.element;
 import static java.time.Duration.ofSeconds;
+import static org.testng.Assert.assertEquals;
 
 public class Gestures extends LaunchAppUsingEmulator {
 
-	public static void main(String[] args) throws MalformedURLException 
+	public static void main(String[] args) throws MalformedURLException, InterruptedException 
 	{
 		driver= initialization();
 		driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
@@ -42,6 +45,14 @@ public class Gestures extends LaunchAppUsingEmulator {
 		
 		//Need to import longpress manually and for duration need to import ofseconds from java.time package
 		t.longPress(longPressOptions().withElement(element(peoplename))).release().perform();
+		
+		String expected= driver.findElement(By.id("android:id/title")).getText();
+		
+		Thread.sleep(5000);
+		assertEquals(driver.findElement(By.id("android:id/title")).getText(), expected);
+		
+		
+		
 	
 		
         

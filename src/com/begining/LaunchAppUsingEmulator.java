@@ -33,9 +33,10 @@ public class LaunchAppUsingEmulator {
 		cap.setCapability(MobileCapabilityType.APP,f2.getAbsolutePath());//
 		System.out.println("Android path is "+f2.getAbsolutePath());
 		
+		
 		//AndroidDriver driver= new AndroidDriver("connections to appium server", "object of desired cap");//Only this command sent to appium server.
 		//wd -- webdriver
-	
+	//AndroidElement used as a generics to AndroidDriver so that we can use AndroidElement.
 		 driver = new AndroidDriver<AndroidElement>(new URL("http://127.0.01:4723/wd/hub"), cap);		
 		 
 		 return driver;
