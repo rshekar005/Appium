@@ -4,10 +4,13 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.internal.Version;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -26,11 +29,13 @@ public class LaunchAppUsingEmulator {
 		DesiredCapabilities cap = new DesiredCapabilities();
 		
 		//Below command used to which emulator need to connect to run script. If emulator is not connected then need to give device name
-			cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Android-9-Shekar");	
-		//cap.setCapability(MobileCapabilityType.AUTOMATION_NAME,"uiautomator2");
+			cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Device");	
+	   // cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, 9);
+	    //cap.setPlatform(Platform.ANDROID);
+	    		//cap.setCapability(MobileCapabilityType.AUTOMATION_NAME,"uiautomator2");
 		// below command used to run the Native app which present in device. Value will the path of the apk.
 		//Here file is nothing but apk.
-		cap.setCapability(MobileCapabilityType.APP,f2.getAbsolutePath());//
+	cap.setCapability(MobileCapabilityType.APP,f2.getAbsolutePath());//
 		System.out.println("Android path is "+f2.getAbsolutePath());
 		
 		
