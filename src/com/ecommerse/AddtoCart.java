@@ -8,6 +8,9 @@ import org.openqa.selenium.WebElement;
 
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
+
 import static io.appium.java_client.touch.TapOptions.tapOptions;
 import static io.appium.java_client.touch.LongPressOptions.longPressOptions;
 import static io.appium.java_client.touch.offset.ElementOption.element;
@@ -17,7 +20,7 @@ import static java.time.Duration.ofSeconds;
 public class AddtoCart extends EcommerceHomePage
 {
  static String productPrices;
-	public static void main(String[] args) throws MalformedURLException 
+	public static AndroidDriver<AndroidElement> addcart() throws MalformedURLException 
 	{
          homePage();
          
@@ -52,20 +55,23 @@ public class AddtoCart extends EcommerceHomePage
           driver.findElements(By.id("com.androidsample.generalstore:id/productAddCart")).get(i).click();
           System.out.println("Product Name is :"+productNames);
     	   productPrices = driver.findElements(By.id("com.androidsample.generalstore:id/productPrice")).get(i).getText();
-    	  System.out.println("Product Price of" +productNames+ " is " +getAmount(productPrices)); 	
+    	  System.out.println("Product Price of " +productNames+ " is " +getAmount(productPrices)); 	
     	  double amount=getAmount(productPrices);
     	  System.out.println(sum=amount+sum);
       }
      driver.findElement(By.id("com.androidsample.generalstore:id/appbar_btn_cart")).click(); 
-     
-     WebElement checkbox= driver.findElement(By.className("android.widget.CheckBox"));
+     // Gestures
+    /* WebElement checkbox= driver.findElement(By.className("android.widget.CheckBox"));
      WebElement agree = driver.findElement(By.xpath("//*[@text='Please read our terms of conditions']"));
      TouchAction touchaction= new TouchAction(driver);
      
      touchaction.tap(tapOptions().withElement(element(checkbox))).perform();
      touchaction.longPress(longPressOptions().withElement(element(agree)).withDuration(ofSeconds(2))).perform();
      driver.findElement(By.xpath("//*[@text='CLOSE']")).click();
+  */
      driver.findElement(By.id("com.androidsample.generalstore:id/btnProceed")).click();
+   
+	return driver;
 	}
     public static double getAmount(String price)
     {
