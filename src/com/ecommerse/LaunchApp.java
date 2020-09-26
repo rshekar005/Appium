@@ -15,9 +15,9 @@ public class LaunchApp
 	public static AndroidDriver<AndroidElement> driver;
 	public static AndroidDriver<AndroidElement> initialization() throws MalformedURLException
 	{
-		File f= new File("C:\\Users\\Shekhar\\git\\AppiumBeginers\\src\\General-Store.apk");
+		File f= new File("E://Git//AppiumBeginers//src//General-Store.apk");
 		DesiredCapabilities cap = new DesiredCapabilities();
-		cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Android-9-Shekar");
+		cap.setCapability(MobileCapabilityType.DEVICE_NAME, "ShekarEmulatorPie");
 		cap.setCapability(MobileCapabilityType.APP, f.getAbsolutePath());
 		System.out.println("path of the apk is "+f.getAbsolutePath());
 		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");

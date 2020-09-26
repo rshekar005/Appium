@@ -31,7 +31,7 @@ public class LaunchAppUsingEmulator {
 		//Below command used to which emulator need to connect to run script. If emulator is not connected then need to give device name
 			cap.setCapability(MobileCapabilityType.DEVICE_NAME, "ShekarEmulatorPie");	
 	   // cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, 9);
-	    //cap.setPlatform(Platform.ANDROID);
+	    cap.setPlatform(Platform.ANDROID);
 	    		//cap.setCapability(MobileCapabilityType.AUTOMATION_NAME,"uiautomator2");
 		// below command used to run the Native app which present in device. Value will the path of the apk.
 		//Here file is nothing but apk.
